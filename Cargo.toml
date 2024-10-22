@@ -1,0 +1,44 @@
+[workspace]
+members = [
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+authors = ["mash180sx <mash180sx@gmail.com>"]
+edition = "2021"
+rust-version = "1.81.0"
+description = "AionCore is an integrated platform that supports the development of distributed parallel systems and generative AI learning models based on a lightweight actor model."
+documentation = "https://docs.rs/aioncore" # TBD
+readme = "README.md"
+homepage = "https://github.com/org-408/aioncore"
+repository = "https://github.com/org-408/aioncore"
+license = "MIT"
+keywords = ["actor", "concurrent", "distributed", "framework", "AI", "ML", "LLM"]
+categories = ["concurrency", "asynchronous", "AI", "ML", "LLM"]
+
+[workspace.dependencies]
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.release]
+opt-level = 3
+debug = false
+lto = "thin"
+codegen-units = 1
+
+[profile.test]
+opt-level = 0
+debug = true
+
+[profile.bench]
+opt-level = 3
+debug = false
+lto = "thin"
+codegen-units = 1
+
+[workspace.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
